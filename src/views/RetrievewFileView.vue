@@ -279,7 +279,7 @@
               </div>
               <div v-else>
                 <a
-                  :href="`${baseUrl}${selectedRecord.downloadUrl}`"
+                  :href="`${ selectedRecord.downloadUrl.startsWith('http') ? '' : baseUrl }${selectedRecord.downloadUrl}`"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-300"
@@ -369,7 +369,7 @@ import { marked } from 'marked'
 import { useAlertStore } from '@/stores/alertStore'
 
 const alertStore = useAlertStore()
-const baseUrl = window.location.origin
+const baseUrl = `${window.location.origin}${import.meta.env.BASE_URL}`
 
 const router = useRouter()
 const isDarkMode = inject('isDarkMode')
