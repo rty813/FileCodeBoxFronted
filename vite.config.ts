@@ -7,6 +7,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
 export default defineConfig({
+  base: '/FileCodeBox/',
   plugins: [vue(), vueJsx(), vueDevTools()],
   resolve: {
     alias: {

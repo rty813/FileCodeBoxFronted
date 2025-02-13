@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from '../router'
 
 // 从环境变量中获取 API 基础 URL
 const baseURL =
@@ -50,7 +51,7 @@ api.interceptors.response.use(
         case 401:
           console.error('未授权，请重新登录')
           localStorage.clear()
-          window.location.href = '/#/login'
+          router.push({ path: '/login' });
           break
         case 403:
           // 禁止访问

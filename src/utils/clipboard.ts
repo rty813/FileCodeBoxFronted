@@ -61,7 +61,7 @@ export const copyToClipboard = async (
  * @returns Promise<boolean> 是否复制成功
  */
 export const copyRetrieveLink = async (code: string): Promise<boolean> => {
-  const link = `${window.location.origin}/#/?code=${code}`
+  const link = `${window.location.origin}${import.meta.env.BASE_URL || '/'}#/?code=${code}`
   return copyToClipboard(link, {
     successMsg: '取件链接已复制到剪贴板',
     errorMsg: '复制失败，请手动复制取件链接'
